@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %} Checkout canceled {% endblock %}
+
+{% block navbar %}{% endblock %}
+{% block content %}
+{% from "includes/_formHelper.html" import render_field %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<section>
+  <p>Forgot to add something to your cart? Shop around then come back to pay!</p>
+  <input type="button" value="Back to Products" class="btn btn-primary" onclick="window.location.href = 'http://127.0.0.1:5000/Products'">
+</section>
+{% endblock %}

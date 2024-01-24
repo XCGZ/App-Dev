@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% block title %}Products System - Retrieve Products{% endblock %}
+{% block navbar %}
+{% include 'includes/_staff_navbar.html' %}
+{% endblock %}
+{% block content %}
+<h1 class="display-4">Retrieve Products</h1>
+<div>
+    {% if count == 0 %}
+    <p>There are no products.</p>
+    {% elif count == 1 %}
+    <p>There is 1 product.</p>
+    {% else %}
+    <p>There are {{ count }} products.</p>
+    {% endif %}
+</div>
+<div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Product ID</th>
+                <th>Product Name</th>
+                <th>Product Country</th>
+                <th>Product Type</th>
+                <th>Product Dietary Attributes</th>
+                <th>Product Quantity</th>
+                <th>Product Price</th>
+                <th>Product URL</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products_list %}
+            <tr>
+                <td>{{ product.get_id() }}</td>
+                <td>{{ product.get_name() }}</td>
+                <td>{{ product.get_country() }}</td>
+                <td>{{ product.get_type() }}</td>
+                <td>{{ product.get_dietary() }}</td>
+                <td>{{ product.get_quantity() }}</td>
+                <td>{{ product.get_price() }}</td>
+                <td>{{ product.get_url() }}</td>
+                <td><a href="/updateProducts/{{product.get_id()}}" class="btn btn-warning">Update</a></td>
+                <td>
+                    <form action="{{url_for('delete_products', id=product.get_id())}}" method="POST">
+                        <!-- Button to Open the Modal -->
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#myModal_{{product.get_id()}}">
+                            Delete
+                        </button>
+                        <!-- The Modal -->
+                        <div class="modal" id="myModal_{{product.get_id()}}">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Delete Confirmation</h4>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        Are you sure you want to delete Product: {{product.get_id() }} {{product.get_name()}}?
+                                    </div>
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <input type="submit" value="Delete" class="btn btn-danger">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-bs-dismiss="modal">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% for key in cart_session %}
+    {{cart_session[key]["name"]}}
+{% endfor %}
+
+{% endblock %}

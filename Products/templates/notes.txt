@@ -1,0 +1,96 @@
+if the name in the dictionary does not match any of the product items titles in the html (maybe), then add the item.
+use a for loop or while loop
+
+for filter:
+if this class (Singapore), filter all items with singapore class?
+possibly add the country and the type of item (Body wash) to each item in the dictionary.
+when filter is clicked, if true, display all the items with that value from the dictionar.yu.
+
+
+DB item product adding page:
+use post
+
+
+tromorrow:
+- make database delete function (done)
+- filter using checkbox (since now all products have the country brand and dietary attributes assigned to their ids in the db, when Singapore checkbox is clicked and a product has Singapore in its db, then show on page)
+- maybe assign values to all the checkboxes, 1, 2,3 etc. so that when it is checked and sent to server, if value is 1, i would know which checkbox was selected(done)
+- search filter
+- minus and plu sbutton to add to cart
+- when item is added to cart (test for now), decreease the quantity in the db (In the future, it would be when an item is checkedout then quantity decreases)
+- cloud hosting
+- auto increrment product id
+- Sort the retrieveproducts page by id
+search function in update products
+
+
+use max for quantity and the value in max should be the amount of quantity left iun db
+for user being able to go back and forth page to decrease the quantityu, it can ber solved by making quanitty decrease only when stripe checkout is pressed
+
+-maybe make a basic cart page
+
+
+when click onc heckout button on checkout.html page, redirect to success page. once redirected to succes page, reduce quantity and stor ein db
+
+
+things to fixc:
+when product is added to cart, its id is not added. it only gets added when i p[ress checkout which is wrong functunailayt]
+when i remove item ferom cart, data still stays in the cart quantity session whcih is also wrong
+
+
+things to fix:
+- product when update in retrieveproducts page, price, integer cannot have the 2 0s behind. probabily because of the stripe db
+- limit quantity of items that can be added based on number of quantity in the database. Havcing added this functionality yet
+- update stripe page with more stuff like aple payu
+- if product from database is empty, display out of stock in the products list page and retrieve products
+- after bought item remove from cartproducts poage. session clear
+- if item already in cart generate alert and whehn add to cart cicked
+- send email to customer aftere they bought throguh email in payment
+- publication of stripe
+- add product id when it is created automatically. when a product is removed, all items wil reuce their id by 1
+- if item in the view cart, cobmine the items if they are same
+-createproducts page should generate an error because i changed how id is set in the products class.
+
+!important page to show products that are bought. (almost done) add image to the list
+shipping price
+add products from txt
+payment retrievel from stripe (done)
+exception msg on stripe checkout when item is out of stock
+stripe listen --forward-to http://localhost:5000/webhook
+
+
+
+
+
+what to do:
+
+- if item already in cart generate alert and whehn add to cart cicked (not so important) (medium) (done)
+- publication of stripe (important) (hard) (not needed for this review)
+- add product id when it is created automatically. when a product is removed, all items wil reduce their id by 1 (imporant) (hard) (should be done (check again))
+
+!important page to show products that are bought. (almost done) add image to the list (done)
+!imporant filter for main page need to change some filters (medium) (done) 
+!Imporant button links on some page like on cart page, back to products page (easy)
+!imporant import all the txt files to products. (hard)
+!imporant css and html of the products liost page (medium)
+button in view cart page when product arrives. order confirmed message? (done)
+
+
+payment retrievel from stripe
+
+
+exception msg on stripe checkout when item is out of stock
+add all necessary products
+navbar for inventory management page
+decide what pagers have navbar
+checkouterror page
+css
+
+1. navigation bar
+2. mak esure all buttons work
+3. what pages need navbar
+4. css
+
+
+
+txt file images are quite easy to add. just add the product names instead of image links. after that, replace all spaces with underscores. put into the equation that wil set jpg
